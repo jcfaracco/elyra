@@ -35,6 +35,7 @@ class RuntimeProcessorType(Enum):
     KUBEFLOW_PIPELINES = "Kubeflow Pipelines"
     APACHE_AIRFLOW = "Apache Airflow"
     ARGO = "Argo"
+    PREFECT = "Prefect"
     ######################################
     # Add new entry here for each new type
     ######################################
@@ -133,6 +134,14 @@ class LocalResources(RuntimeTypeResources):
     type = RuntimeProcessorType.LOCAL
     icon_endpoint = "static/elyra/pipeline-flow.svg"
     export_file_types = []
+
+
+class PrefectResources(RuntimeTypeResources):
+    """Holds static information relative to Prefect processors"""
+
+    type = RuntimeProcessorType.PREFECT
+    icon_endpoint = "static/elyra/prefect.svg"
+    export_file_types = [{"id": "py", "display_name": "Prefect domain-specific language Python code"}]
 
 
 ###########################################################
